@@ -32,6 +32,7 @@ select.ts-hidden-accessible {
 .filter-multiselect > .input-group-text {
   flex: 0 0 auto;
   min-height: var(--filter-multiselect-min-height);
+  color: rgba(var(--tblr-body-color-rgb), .65);
 }
 
 .filter-multiselect > .ts-wrapper {
@@ -43,6 +44,11 @@ select.ts-hidden-accessible {
   min-width: 0;
   min-height: calc(var(--filter-multiselect-min-height) - 2px);
   align-content: center;
+}
+
+.filter-multiselect > .ts-wrapper > .ts-control input::placeholder {
+  color: var(--tblr-body-color);
+  opacity: 1;
 }
 
 /* FIX: Tom Select - select inside Bootstrap form-floating (floating label) */
@@ -146,4 +152,10 @@ select.ts-hidden-accessible {
     opacity: var(--tblr-btn-close-opacity);
     text-decoration: none;
   }
+}
+
+/* Keep wrapped tags visually separated without changing their horizontal
+   spacing. */
+.ts-wrapper.multi .ts-control {
+  row-gap: .25rem;
 }
