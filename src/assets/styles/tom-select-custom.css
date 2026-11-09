@@ -20,6 +20,31 @@ select.ts-hidden-accessible {
   min-height: calc(0.625rem + 21px + 0.625rem);
 }
 
+/* Multi-select filters use the same 58px baseline as Tabler's form-floating
+   controls. Keep it as a minimum so multiple rows of tags can still expand. */
+.filter-multiselect {
+  --filter-multiselect-min-height: 58px;
+  flex-wrap: nowrap;
+  width: 100%;
+  min-height: var(--filter-multiselect-min-height);
+}
+
+.filter-multiselect > .input-group-text {
+  flex: 0 0 auto;
+  min-height: var(--filter-multiselect-min-height);
+}
+
+.filter-multiselect > .ts-wrapper {
+  min-width: 0;
+  min-height: var(--filter-multiselect-min-height);
+}
+
+.filter-multiselect > .ts-wrapper > .ts-control {
+  min-width: 0;
+  min-height: calc(var(--filter-multiselect-min-height) - 2px);
+  align-content: center;
+}
+
 /* FIX: Tom Select - select inside Bootstrap form-floating (floating label) */
 /* https://github.com/orchidjs/tom-select/issues/579#issuecomment-2437534901 */
 .form-floating {

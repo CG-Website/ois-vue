@@ -77,8 +77,8 @@
           </div>
         </div>
         <div class="col-auto">
-          <div class="input-group">
-            <label class="input-group-text user-select-none">Dodavatel</label>
+          <div class="input-group filter-multiselect">
+            <label class="input-group-text user-select-none" for="filter-suppliers">Dodavatel</label>
             <select class="form-select" name="filter-suppliers" id="filter-suppliers" multiple>
               <option value="Sapeli">Sapeli</option>
               <option value="Hanák">Hanák</option>

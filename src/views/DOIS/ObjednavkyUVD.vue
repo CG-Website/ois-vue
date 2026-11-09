@@ -565,26 +565,6 @@
 </template>
 
 <style scoped>
-  .input-group {
-    flex-wrap: nowrap;
-  }
-
-  .filter-multiselect {
-    width: 100%;
-  }
-
-  .filter-multiselect > .input-group-text {
-    flex: 0 0 auto;
-  }
-
-  .filter-multiselect :deep(.ts-wrapper) {
-    min-width: 0;
-  }
-
-  .filter-multiselect :deep(.ts-control) {
-    min-width: 0;
-  }
-
   tr {
     /* Aby .stretched-link pasoval na řádek */
     position: relative;
