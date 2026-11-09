@@ -5,7 +5,7 @@
   font-family: 'Geist';
   src:
     url('../fonts/geist/webfonts/Geist[wght].woff2') format('woff2'),
-    url('../fonts/geist/webfonts/Geist[wght].ttf') format('truetype');
+    url('../fonts/geist/variable/Geist[wght].ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
 }
@@ -14,7 +14,7 @@
   font-family: 'Geist';
   src:
     url('../fonts/geist/webfonts/Geist-Italic[wght].woff2') format('woff2'),
-    url('../fonts/geist/webfonts/Geist-Italic[wght].ttf') format('truetype');
+    url('../fonts/geist/variable/Geist-Italic[wght].ttf') format('truetype');
   font-weight: 100 900;
   font-style: italic;
 }
@@ -23,8 +23,8 @@
 @font-face {
   font-family: 'Geist Mono';
   src:
-    url('../fonts/geist/webfonts/GeistMono[wght].woff2') format('woff2'),
-    url('../fonts/geist/webfonts/GeistMono[wght].ttf') format('truetype');
+    url('../fonts/geist-mono/webfonts/GeistMono[wght].woff2') format('woff2'),
+    url('../fonts/geist-mono/variable/GeistMono[wght].ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
 }
@@ -32,8 +32,8 @@
 @font-face {
   font-family: 'Geist Mono';
   src:
-    url('../fonts/geist/webfonts/GeistMono-Italic[wght].woff2') format('woff2'),
-    url('../fonts/geist/webfonts/GeistMono-Italic[wght].ttf') format('truetype');
+    url('../fonts/geist-mono/webfonts/GeistMono-Italic[wght].woff2') format('woff2'),
+    url('../fonts/geist-mono/variable/GeistMono-Italic[wght].ttf') format('truetype');
   font-weight: 100 900;
   font-style: italic;
 }

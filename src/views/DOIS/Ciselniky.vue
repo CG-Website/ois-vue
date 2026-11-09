@@ -63,6 +63,7 @@
                     type="search"
                     class="form-control form-control-sm"
                     placeholder="Hledejte..."
+                    aria-label="Hledat kategorie"
                     autocomplete="off">
                 </div>
               </div>
@@ -147,6 +148,7 @@
                     type="search"
                     class="form-control form-control-sm"
                     placeholder="Hledejte..."
+                    aria-label="Hledat položky"
                     autocomplete="off">
                 </div>
               </div>
@@ -230,12 +232,12 @@
           <div class="modal-body">
             <div class="row g-3">
               <div class="col">
-                <label class="form-label">ID</label>
-                <input type="text" class="form-control" readonly disabled value="70">
+                <label class="form-label" for="category-add-id">ID</label>
+                <input type="text" class="form-control" id="category-add-id" readonly disabled value="70">
               </div>
               <div class="col-9">
-                <label class="form-label">Název</label>
-                <input type="text" class="form-control">
+                <label class="form-label" for="category-add-name">Název</label>
+                <input type="text" class="form-control" id="category-add-name">
               </div>
             </div>
           </div>
@@ -258,12 +260,12 @@
           <div class="modal-body">
             <div class="row g-3">
               <div class="col">
-                <label class="form-label">ID</label>
-                <input type="text" class="form-control" readonly disabled value="69">
+                <label class="form-label" for="category-edit-id">ID</label>
+                <input type="text" class="form-control" id="category-edit-id" readonly disabled value="69">
               </div>
               <div class="col-9">
-                <label class="form-label">Název</label>
-                <input type="text" class="form-control" value="Nábytek">
+                <label class="form-label" for="category-edit-name">Název</label>
+                <input type="text" class="form-control" id="category-edit-name" value="Nábytek">
               </div>
             </div>
           </div>
@@ -309,15 +311,15 @@
           <div class="modal-body">
             <div class="row g-3">
               <div class="col">
-                <label class="form-label">ID</label>
+                <label class="form-label" for="item-add-id">ID</label>
                 <input type="text" class="form-control" id="item-add-id" readonly disabled value="421">
               </div>
               <div class="col-9">
-                <label class="form-label">Název</label>
+                <label class="form-label" for="item-add-name">Název</label>
                 <input type="text" class="form-control" id="item-add-name">
               </div>
               <div class="col-12">
-                <label class="form-label">Kategorie</label>
+                <label class="form-label" for="item-add-category">Kategorie</label>
                 <select class="form-select" autocomplete="off" id="item-add-category" required>
                   <option selected disabled>vyberte</option>
                   <option value="1">Možnost 1</option>
@@ -348,15 +350,15 @@
           <div class="modal-body">
             <div class="row g-3">
               <div class="col">
-                <label class="form-label">ID</label>
-                <input type="text" class="form-control" id="item-add-id" readonly disabled value="420">
+                <label class="form-label" for="item-edit-id">ID</label>
+                <input type="text" class="form-control" id="item-edit-id" readonly disabled value="420">
               </div>
               <div class="col-9">
-                <label class="form-label">Název</label>
-                <input type="text" class="form-control" id="item-add-name" value="Židle">
+                <label class="form-label" for="item-edit-name">Název</label>
+                <input type="text" class="form-control" id="item-edit-name" value="Židle">
               </div>
               <div class="col-12">
-                <label class="form-label">Kategorie</label>
+                <label class="form-label" for="item-edit-category">Kategorie</label>
                 <select class="form-select" autocomplete="off" id="item-edit-category" required>
                   <option selected disabled>vyberte</option>
                   <option value="1">Možnost 1</option>

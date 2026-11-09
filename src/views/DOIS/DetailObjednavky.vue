@@ -377,7 +377,7 @@
                                 <path d="M12 15v3"></path>
                               </svg>
                             </span>
-                            <input type="date" class="form-control" id="">
+                            <input type="date" class="form-control" id="order-item-completion-date-1" name="order-item-completion-date-1" aria-label="Termín splnění položky Skříň chodba">
                           </div>
                         </td>
                       </tr>
@@ -395,7 +395,7 @@
                                 <path d="M12 15v3"></path>
                               </svg>
                             </span>
-                            <input type="date" class="form-control" id="">
+                            <input type="date" class="form-control" id="order-item-completion-date-2" name="order-item-completion-date-2" aria-label="Termín splnění položky Nějaká položka s dlouhým názvem">
                           </div>
                         </td>
                       </tr>
@@ -487,7 +487,7 @@
                                   <path d="M9 17l6 0" />
                                 </svg>
                                 <!-- ? stáhnout kliknutím na název ? -->
-                                <a href="./todo" class="text-reset">192-01-81_os1.pdf</a>
+                                <span class="text-reset" aria-disabled="true">192-01-81_os1.pdf</span>
                                 <!-- NOTE: Zobrazí se pouze pokud se bude jednat o dokument objednávky -->
                                 <span class="badge bg-purple-lt text-purple-lt-fg mx-1">Objednávka</span>
                               </span>
@@ -550,7 +550,7 @@
                                   <path d="M9 17l6 0" />
                                 </svg>
                                 <!-- ? stáhnout kliknutím na název ? -->
-                                <a href="./todo" class="text-reset">nejaky-jiny-soubor.pdf</a>
+                                <span class="text-reset" aria-disabled="true">nejaky-jiny-soubor.pdf</span>
                                 <!-- NOTE: Zobrazí se pouze pokud se bude jednat o dokument objednávky -->
                                 <span class="badge bg-blue-lt text-blue-lt-fg mx-1">Příloha</span>
                               </span>
@@ -630,7 +630,7 @@
                     </div>
                   </div>
                   <div class="col-12 col-lg-6">
-                    <label for="order-order-date" class="form-label">Datum akceptace</label>
+                    <label for="order-acceptance-date" class="form-label">Datum akceptace</label>
                     <div class="input-icon">
                       <span class="input-icon-addon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-1">
@@ -642,7 +642,7 @@
                           <path d="M12 15v3"></path>
                         </svg>
                       </span>
-                      <input type="date" class="form-control" name="order-order-date" id="order-order-date">
+                      <input type="date" class="form-control" name="order-acceptance-date" id="order-acceptance-date">
                     </div>
                   </div>
                 </div>

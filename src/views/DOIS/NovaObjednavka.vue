@@ -111,15 +111,15 @@
                         </div>
                       </div>
                       <div class="col-md-6 col-lg-6">
-                        <label class="form-label" for="order-input-date-sod">Číslo SoD</label>
-                        <input type="text" class="form-control" placeholder="Číslo SoD...">
+                        <label class="form-label" for="order-input-contract-number">Číslo SoD</label>
+                        <input type="text" class="form-control" id="order-input-contract-number" name="order-input-contract-number" placeholder="Číslo SoD...">
                       </div>
                       <div class="col-md-6 col-lg-6">
-                        <label class="form-label" for="order-input-date-sod">Katalogové číslo</label>
-                        <input type="text" class="form-control" disabled>
+                        <label class="form-label" for="order-input-catalog-number">Katalogové číslo</label>
+                        <input type="text" class="form-control" id="order-input-catalog-number" name="order-input-catalog-number" disabled>
                       </div>
                       <div class="col-md-6 col-lg-6">
-                        <label class="form-label" for="order-input-date-sod">Podpis SoD</label>
+                        <label class="form-label" for="order-input-contract-signed-at">Podpis SoD</label>
                         <div class="input-icon">
                           <span class="input-icon-addon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-1">
@@ -131,7 +131,7 @@
                               <path d="M12 15v3"></path>
                             </svg>
                           </span>
-                          <input type="date" class="form-control" disabled>
+                          <input type="date" class="form-control" id="order-input-contract-signed-at" name="order-input-contract-signed-at" disabled>
                         </div>
                       </div>
                       <div class="col-md-6 col-lg-6">
@@ -197,7 +197,7 @@
                       <tr>
                         <td>
                           <!-- NOTE: Tom Select -->
-                          <select class="form-select" autocomplete="off" id="filter-item">
+                          <select class="form-select" autocomplete="off" id="filter-item" aria-label="Položka objednávky">
                             <option selected disabled>vyberte</option>
                             <option value="1">Možnost 1</option>
                             <option value="2">Možnost 2</option>
@@ -218,7 +218,7 @@
                                 <path d="M12 15v3"></path>
                               </svg>
                             </span>
-                            <input type="date" class="form-control" id="">
+                            <input type="date" class="form-control" id="order-item-completion-date" name="order-item-completion-date" aria-label="Termín splnění položky">
                           </div>
                         </td>
                       </tr>
@@ -306,7 +306,7 @@
                               <path d="M9 17l6 0" />
                             </svg>
                             <!-- ? stáhnout kliknutím na název ? -->
-                            <a href="./todo" class="text-reset">192-01-81_os1.pdf</a>
+                            <span class="text-reset" aria-disabled="true">192-01-81_os1.pdf</span>
                           </div>
                           <div class="text-muted">Poznámka dodavatele k daným přílohám</div>
                         </td>

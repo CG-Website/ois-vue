@@ -117,31 +117,31 @@
 
         <div class="col-sm-4 col-xxl-2">
           <div class="form-floating">
-            <input class="form-control" type="text">
-            <label>Interní číslo objednávky</label>
+            <input class="form-control" type="text" id="filter-internal-order-number" name="filter-internal-order-number">
+            <label for="filter-internal-order-number">Interní číslo objednávky</label>
           </div>
         </div>
         <div class="col-sm-4 col-xxl-2">
           <div class="form-floating">
-            <input class="form-control" type="text">
-            <label>Katalogové číslo</label>
+            <input class="form-control" type="text" id="filter-catalog-number" name="filter-catalog-number">
+            <label for="filter-catalog-number">Katalogové číslo</label>
           </div>
         </div>
         <div class="col-sm-4 col-xxl-2">
           <div class="form-floating">
-            <input class="form-control" type="text">
-            <label>Číslo SoD</label>
+            <input class="form-control" type="text" id="filter-contract-number" name="filter-contract-number">
+            <label for="filter-contract-number">Číslo SoD</label>
           </div>
         </div>
         <div class="col-sm-4 col-xxl-2">
           <div class="form-floating">
-            <input class="form-control" type="date">
-            <label>Podpis SoD</label>
+            <input class="form-control" type="date" id="filter-contract-signed-at" name="filter-contract-signed-at">
+            <label for="filter-contract-signed-at">Podpis SoD</label>
           </div>
         </div>
         <div class="col-sm-4 col-xxl-2">
           <div class="form-floating">
-            <select class="form-select" autocomplete="off">
+            <select class="form-select" id="filter-order-status" name="filter-order-status" autocomplete="off">
               <option selected>všichni</option>
               <option value="1">Možnost 1</option>
               <option value="2">Možnost 2</option>
@@ -149,12 +149,12 @@
               <option value="4">Možnost 4</option>
               <option value="5">Možnost 5</option>
             </select>
-            <label>Stav objednávky</label>
+            <label for="filter-order-status">Stav objednávky</label>
           </div>
         </div>
         <div class="col-sm-4 col-xxl-2">
           <div class="form-floating">
-            <select class="form-select" autocomplete="off">
+            <select class="form-select" id="filter-uvd-technician" name="filter-uvd-technician" autocomplete="off">
               <option selected>všichni</option>
               <option value="1">Možnost 1</option>
               <option value="2">Možnost 2</option>
@@ -162,12 +162,12 @@
               <option value="4">Možnost 4</option>
               <option value="5">Možnost 5</option>
             </select>
-            <label>Technik ÚVD</label>
+            <label for="filter-uvd-technician">Technik ÚVD</label>
           </div>
         </div>
         <div class="col-sm-4 col-xxl-2">
           <div class="form-floating">
-            <select class="form-select" autocomplete="off">
+            <select class="form-select" id="filter-construction-supervisor" name="filter-construction-supervisor" autocomplete="off">
               <option selected>všichni</option>
               <option value="1">Možnost 1</option>
               <option value="2">Možnost 2</option>
@@ -175,12 +175,12 @@
               <option value="4">Možnost 4</option>
               <option value="5">Možnost 5</option>
             </select>
-            <label>Stavební dozor</label>
+            <label for="filter-construction-supervisor">Stavební dozor</label>
           </div>
         </div>
         <div class="col-sm-4 col-xxl-2">
           <div class="form-floating">
-            <select class="form-select" autocomplete="off">
+            <select class="form-select" id="filter-salesperson" name="filter-salesperson" autocomplete="off">
               <option selected>všichni</option>
               <option value="1">Možnost 1</option>
               <option value="2">Možnost 2</option>
@@ -188,42 +188,42 @@
               <option value="4">Možnost 4</option>
               <option value="5">Možnost 5</option>
             </select>
-            <label>Prodejce</label>
+            <label for="filter-salesperson">Prodejce</label>
           </div>
         </div>
         <div class="col-sm-4 col-xxl-2">
           <div class="form-floating">
-            <input class="form-control" type="date">
-            <label>Akceptace objednávky</label>
+            <input class="form-control" type="date" id="filter-order-accepted-at" name="filter-order-accepted-at">
+            <label for="filter-order-accepted-at">Akceptace objednávky</label>
           </div>
         </div>
         <div class="col-sm-4 col-xxl-2">
           <div class="form-floating">
-            <input class="form-control" type="date">
-            <label>Zahájení montáže</label>
+            <input class="form-control" type="date" id="filter-installation-start" name="filter-installation-start">
+            <label for="filter-installation-start">Zahájení montáže</label>
           </div>
         </div>
         <div class="col-sm-4 col-xxl-2">
           <div class="form-floating">
-            <input class="form-control" type="date">
-            <label>Dokončení montáže</label>
+            <input class="form-control" type="date" id="filter-installation-finish" name="filter-installation-finish">
+            <label for="filter-installation-finish">Dokončení montáže</label>
           </div>
         </div>
         <div class="col-sm-4 col-xxl-2">
           <div class="form-floating">
-            <input class="form-control" type="date">
-            <label>Termín splnění</label>
+            <input class="form-control" type="date" id="filter-completion-deadline" name="filter-completion-deadline">
+            <label for="filter-completion-deadline">Termín splnění</label>
           </div>
         </div>
         <div class="col-sm-4 col-xxl-2">
           <div class="form-floating">
-            <input class="form-control" type="date">
-            <label>Připravenost stavba od</label>
+            <input class="form-control" type="date" id="filter-site-ready-from" name="filter-site-ready-from">
+            <label for="filter-site-ready-from">Připravenost stavba od</label>
           </div>
         </div>
         <div class="col-sm-4 col-xxl-2">
           <div class="form-floating">
-            <select class="form-select" autocomplete="off">
+            <select class="form-select" id="filter-installation-handover-status" name="filter-installation-handover-status" autocomplete="off">
               <option selected>všichni</option>
               <option value="1">Možnost 1</option>
               <option value="2">Možnost 2</option>
@@ -231,12 +231,12 @@
               <option value="4">Možnost 4</option>
               <option value="5">Možnost 5</option>
             </select>
-            <label>Předávací protokol montáž</label>
+            <label for="filter-installation-handover-status">Předávací protokol montáž</label>
           </div>
         </div>
         <div class="col-sm-4 col-xxl-2">
           <div class="form-floating">
-            <select class="form-select" autocomplete="off">
+            <select class="form-select" id="filter-defects-handover-status" name="filter-defects-handover-status" autocomplete="off">
               <option selected>všichni</option>
               <option value="1">Možnost 1</option>
               <option value="2">Možnost 2</option>
@@ -244,7 +244,7 @@
               <option value="4">Možnost 4</option>
               <option value="5">Možnost 5</option>
             </select>
-            <label>Předávací protokol vady</label>
+            <label for="filter-defects-handover-status">Předávací protokol vady</label>
           </div>
         </div>
         <div class="col-12">

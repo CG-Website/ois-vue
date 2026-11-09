@@ -20,6 +20,8 @@
   }>()
 
   const doisOrdersStore = useDoisOrders()
+  const attachDocumentsModalId = computed(() => `order-attach-docs-confirm-${props.orderId}`)
+  const selectContractId = computed(() => `order-select-sod-${props.orderId}`)
 
   // COMMENTS
 
@@ -172,7 +174,7 @@
           <button
             class="btn btn-primary"
             data-bs-toggle="modal"
-            data-bs-target="#order-attach-docs-confirm">
+            :data-bs-target="`#${attachDocumentsModalId}`">
             Přiložit vybrané
           </button>
           <!-- Cancel -->
@@ -231,7 +233,7 @@
     </div>
     <div class="card-body">
       <div class="space-y">
-        <div v-for="orderPart in props.documents" class="card">
+        <div v-for="(orderPart, orderPartIndex) in props.documents" :key="orderPart[0].id" class="card">
           <!-- * Main document = orderPart[0] -->
           <div class="list-group list-group-flush">
             <OrderDocumentItem
@@ -249,7 +251,7 @@
           <template v-if="orderPart[1].length > 0">
             <div class="row">
               <div class="col">
-                <div class="accordion accordion-flush" id="temp-dokumenty">
+                <div class="accordion accordion-flush" :id="`order-documents-${props.orderId}-${orderPartIndex}`">
                   <!-- loop for each doc category -->
                   <div v-for="(docGroup, docGroupIndex) in orderPart[1]" class="accordion-item">
                     <div class="accordion-header">
@@ -257,7 +259,7 @@
                         class="accordion-button collapsed list-group-header"
                         type="button"
                         data-bs-toggle="collapse"
-                        :data-bs-target="`#docgroup-${props.orderId}-${props.documents.indexOf(orderPart)}-${orderPart[1].indexOf(docGroup)}`"
+                        :data-bs-target="`#docgroup-${props.orderId}-${orderPartIndex}-${docGroupIndex}`"
                         aria-expanded="false">
                         Počet dokumentů: {{ docGroup.length }}
                         <div class="accordion-button-toggle">
@@ -268,7 +270,7 @@
                       </button>
                     </div>
                     <!-- * Supporting documents -->
-                    <div :id="`docgroup-${props.orderId}-${props.documents.indexOf(orderPart)}-${orderPart[1].indexOf(docGroup)}`" class="accordion-collapse collapse">
+                    <div :id="`docgroup-${props.orderId}-${orderPartIndex}-${docGroupIndex}`" class="accordion-collapse collapse">
                       <div class="list-group list-group-flush">
                         <template v-for="(doc, docIndex) in docGroup" :key="doc.id">
                           <OrderDocumentItem
@@ -319,7 +321,7 @@
 
   <!-- * Připojit dokumenty -->
   <!-- TODO: Place into component -->
-  <div class="modal" id="order-attach-docs-confirm" tabindex="-1" aria-hidden="true">
+  <div class="modal" :id="attachDocumentsModalId" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-md modal-dialog-centered" role="document">
       <div class="modal-content">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -330,10 +332,10 @@
         <div class="modal-body py-4">
           <div class="row gy-3">
             <div class="col-12">
-              <span>Vyberte smlouvu o dílo, ke které chcete přílohy připojit:</span>
+              <label :for="selectContractId">Vyberte smlouvu o dílo, ke které chcete přílohy připojit:</label>
             </div>
             <div class="row-12">
-              <select class="form-select" id="order-select-sod" autocomplete="off">
+              <select class="form-select" :id="selectContractId" autocomplete="off">
                 <option selected disabled>Vyberte</option>
                 <option value="1">152-01-023-ID-I</option>
                 <option value="2">152-01-023-ID-II</option>

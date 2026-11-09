@@ -11,9 +11,27 @@
       to: string
     }[]
     badge?: boolean
+    disabled?: boolean
   }>()
 
   const isExternalLink = computed(() => !!props.to?.startsWith('http'))
+  const navComponent = computed(() => {
+    if (props.disabled) return 'span'
+    return props.children || isExternalLink.value ? 'a' : RouterLink
+  })
+
+  const navLinkAttributes = computed(() => {
+    if (props.disabled) return { 'aria-disabled': 'true' }
+    if (props.children) return {
+      href: props.to,
+      'data-bs-toggle': 'dropdown',
+      'data-bs-auto-close': 'outside',
+      role: 'button',
+      'aria-expanded': 'false',
+    }
+    if (isExternalLink.value) return { href: props.to, target: '_blank', rel: 'noopener noreferrer' }
+    return { to: props.to }
+  })
 
 </script>
 
@@ -21,18 +39,10 @@
 
   <li class="nav-item" :class="{ dropdown: children }">
     <component
-      :is="(children || isExternalLink) ? 'a' : RouterLink"
-      :to="(children || isExternalLink) ? null : to"
-      :href="to"
-      :target="isExternalLink ? '_blank' : null"
+      :is="navComponent"
+      v-bind="navLinkAttributes"
       class="nav-link"
-      v-bind="children ? {
-        'class': 'dropdown-toggle',
-        'data-bs-toggle': 'dropdown',
-        'data-bs-auto-close': 'outside',
-        'role': 'button',
-        'aria-expanded': 'false'
-      } : {}"
+      :class="{ disabled, 'dropdown-toggle': children }"
       draggable="false">
       <span class="nav-link-icon d-inline-block">
         <slot name="icon"></slot>

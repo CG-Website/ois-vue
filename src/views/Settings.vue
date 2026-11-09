@@ -1,22 +1,24 @@
 <script setup lang="ts">
   import PageTemplate from '@/components/PageTemplate.vue'
 
-  // Copied from sign in page
   import { ref } from 'vue'
-  import { useThemeStore } from '@/stores/theme'
-  const themeStore = useThemeStore()
 
-  // FIXME: Password toggling is global; should be tied to its individual input
-  const passwordVisible = ref(false)
-  function togglePasswordVisibility() {
-    passwordVisible.value = !passwordVisible.value
+  type PasswordField = 'current' | 'new' | 'confirmation'
+  const passwordVisibility = ref<Record<PasswordField, boolean>>({
+    current: false,
+    new: false,
+    confirmation: false,
+  })
+
+  function togglePasswordVisibility(field: PasswordField) {
+    passwordVisibility.value[field] = !passwordVisibility.value[field]
   }
 </script>
 
 <template>
 
   <PageTemplate title="Nastavení">
-    <div class="row g-5">
+    <div class="row gy-5 gx-0">
       
       <!-- ? navigace ? -->
       <!-- <div class="col-xl-2 d-none d-xl-block">
@@ -157,7 +159,7 @@
                   Zvolte si kolik dní před splatností platby chcete být na upozorněni.
                 </p>
                 <div>
-                  <select class="form-select w-auto">
+                  <select class="form-select w-auto" aria-label="Počet dní před upozorněním na splatnost">
                     <option value="1">1 den</option>
                     <option value="2">2 dny</option>
                     <option value="3">3 dny</option>
@@ -182,7 +184,7 @@
                 </p>
                 <div class="row">
                   <div class="col-md-6">
-                    <input type="text" class="form-control" name="example-text-input" placeholder="Input placeholder" value="novakovi@seznam.cz" disabled></input>
+                    <input type="text" class="form-control" name="contact-email" aria-label="Kontaktní email" value="novakovi@seznam.cz" disabled>
                   </div>
                 </div>
                 <div class="btn-list mt-4">
@@ -220,33 +222,33 @@
               <div class="row-12">
                 <label class="form-label d-inline-block" for="current-password">Aktuální heslo</label>
                 <div class="input-group input-group-flat">
-                  <input :type="passwordVisible ? 'text' : 'password'" id="current-password" name="current-password" autocomplete="current-password" class="form-control fs-4" placeholder="" required>
+                  <input :type="passwordVisibility.current ? 'text' : 'password'" id="current-password" name="current-password" autocomplete="current-password" class="form-control fs-4" placeholder="" required>
                   <span class="input-group-text">
-                    <a href="#" class="link-secondary" data-bs-toggle="tooltip" aria-label="Přepnout viditelnost hesla" data-bs-original-title="Přepnout viditelnost hesla" @click.prevent="togglePasswordVisibility()">
-                      <i class="fs-2 icon" :class="['ti', passwordVisible ? 'ti-eye-off' : 'ti-eye']"></i>
-                    </a>
+                    <button type="button" class="link-secondary p-0 border-0 bg-transparent" :aria-label="passwordVisibility.current ? 'Skrýt aktuální heslo' : 'Zobrazit aktuální heslo'" @click="togglePasswordVisibility('current')">
+                      <i class="fs-2 icon" :class="['ti', passwordVisibility.current ? 'ti-eye-off' : 'ti-eye']"></i>
+                    </button>
                   </span>
                 </div>
               </div>
               <div class="row-12">
                 <label class="form-label d-inline-block" for="new-password-1">Nové heslo</label>
                 <div class="input-group input-group-flat">
-                  <input :type="passwordVisible ? 'text' : 'password'" id="new-password-1" name="new-password-1" autocomplete="new-password" class="form-control fs-4" placeholder="" required>
+                  <input :type="passwordVisibility.new ? 'text' : 'password'" id="new-password-1" name="new-password-1" autocomplete="new-password" class="form-control fs-4" placeholder="" required>
                   <span class="input-group-text">
-                    <a href="#" class="link-secondary" data-bs-toggle="tooltip" aria-label="Přepnout viditelnost hesla" data-bs-original-title="Přepnout viditelnost hesla" @click.prevent="togglePasswordVisibility()">
-                      <i class="fs-2 icon" :class="['ti', passwordVisible ? 'ti-eye-off' : 'ti-eye']"></i>
-                    </a>
+                    <button type="button" class="link-secondary p-0 border-0 bg-transparent" :aria-label="passwordVisibility.new ? 'Skrýt nové heslo' : 'Zobrazit nové heslo'" @click="togglePasswordVisibility('new')">
+                      <i class="fs-2 icon" :class="['ti', passwordVisibility.new ? 'ti-eye-off' : 'ti-eye']"></i>
+                    </button>
                   </span>
                 </div>
               </div>
               <div class="row-12">
                 <label class="form-label d-inline-block" for="new-password-2">Potvrďtě nové heslo</label>
                 <div class="input-group input-group-flat">
-                  <input :type="passwordVisible ? 'text' : 'password'" id="new-password-2" name="new-password-2" autocomplete="new-password" class="form-control fs-4" placeholder="" required>
+                  <input :type="passwordVisibility.confirmation ? 'text' : 'password'" id="new-password-2" name="new-password-2" autocomplete="new-password" class="form-control fs-4" placeholder="" required>
                   <span class="input-group-text">
-                    <a href="#" class="link-secondary" data-bs-toggle="tooltip" aria-label="Přepnout viditelnost hesla" data-bs-original-title="Přepnout viditelnost hesla" @click.prevent="togglePasswordVisibility()">
-                      <i class="fs-2 icon" :class="['ti', passwordVisible ? 'ti-eye-off' : 'ti-eye']"></i>
-                    </a>
+                    <button type="button" class="link-secondary p-0 border-0 bg-transparent" :aria-label="passwordVisibility.confirmation ? 'Skrýt potvrzení hesla' : 'Zobrazit potvrzení hesla'" @click="togglePasswordVisibility('confirmation')">
+                      <i class="fs-2 icon" :class="['ti', passwordVisibility.confirmation ? 'ti-eye-off' : 'ti-eye']"></i>
+                    </button>
                   </span>
                 </div>
               </div>
