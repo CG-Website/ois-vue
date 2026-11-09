@@ -1,3 +1,18 @@
+/* Keep the enhanced native select accessible without letting Tabler's
+   .form-select rules put it back into the visual layout. */
+select.ts-hidden-accessible {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 /* FIX: Unify padding with Tabler input fields (we subtract to compensate for border) */
 .ts-control {
   padding: calc(0.625rem - 1.5px) 1rem;
@@ -8,7 +23,7 @@
 /* FIX: Tom Select - select inside Bootstrap form-floating (floating label) */
 /* https://github.com/orchidjs/tom-select/issues/579#issuecomment-2437534901 */
 .form-floating {
-
+  
   .ts-wrapper.form-control,
   .ts-wrapper.form-select {
     height: 0 !important;
@@ -41,10 +56,48 @@
   background-color: var(--tblr-active-bg);
 }
 
+/* Tom Select's Bootstrap theme uses --bs-* color variables. Tabler exposes
+   --tblr-* variables instead, otherwise the dropdown becomes transparent. */
+.ts-dropdown {
+  color: var(--tblr-body-color);
+  background: var(--tblr-bg-surface);
+  border-color: var(--tblr-border-color);
+}
+
+.ts-control,
+.ts-control input {
+  color: var(--tblr-body-color);
+}
+
+.ts-wrapper.plugin-dropdown_input .dropdown-input-wrap {
+  padding: .5rem;
+  background: var(--tblr-bg-surface);
+  border-bottom: 1px solid var(--tblr-border-color);
+}
+
+.ts-wrapper.plugin-dropdown_input .dropdown-input {
+  width: 100% !important;
+  min-width: 100%;
+  min-height: calc(1.5em + .75rem + (var(--tblr-border-width) * 2));
+  padding: .375rem .75rem;
+  color: var(--tblr-body-color);
+  background: var(--tblr-bg-surface);
+  border: var(--tblr-border-width) solid var(--tblr-border-color);
+  border-radius: var(--tblr-border-radius);
+  cursor: text;
+}
+
+.ts-wrapper.plugin-dropdown_input.focus .ts-dropdown .dropdown-input {
+  border-color: var(--tblr-primary);
+  outline: 0;
+  box-shadow: 0 0 0 .25rem color-mix(in srgb, var(--tblr-primary) 25%, transparent);
+}
+
 /* WIP */
 .ts-wrapper.multi .ts-control > .tag {
   --tblr-tag-height: 1.5rem;
   border: 1px solid var(--tblr-border-color);
+  color: var(--tblr-body-color);
   display: inline-flex;
   align-items: center;
   height: var(--tblr-tag-height);

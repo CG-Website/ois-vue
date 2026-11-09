@@ -1,3 +1,4 @@
+import 'tom-select/dist/css/tom-select.bootstrap5.css'
 import './assets/styles/main.css'
 
 import { createApp } from 'vue'

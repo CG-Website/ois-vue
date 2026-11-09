@@ -30,13 +30,17 @@
 
   // Initialize multiple Tom-selects
   const tomSelectSelectors = ['#filter-suppliers', '#filter-items'] as const
+  const tomSelectInstances: TomSelect[] = []
   const tomSelectOptions = {
     allowEmptyOption: false,
+    closeAfterSelect: false,
+    hideSelected: false,
     maxItems: null,
+    placeholder: 'Vyberte…',
     plugins: {
+      dropdown_input: {},
       remove_button: {},
       no_active_items: {},
-      input_autogrow: {},
       checkbox_options: {
         checkedClassNames: ['ts-checked'],
         uncheckedClassNames: ['ts-unchecked'],
@@ -50,7 +54,7 @@
       const element = document.querySelector(selector)
       if (!element) return
 
-      new TomSelect(selector, tomSelectOptions)
+      tomSelectInstances.push(new TomSelect(element as HTMLSelectElement, tomSelectOptions))
     })
   })
 
@@ -95,6 +99,8 @@
   })
 
   onUnmounted(() => {
+    tomSelectInstances.forEach((instance) => instance.destroy())
+    tomSelectInstances.length = 0
     destroyDataTable()
   })
 
@@ -243,10 +249,10 @@
         </div>
         <div class="col-12">
           <div class="row align-items-center g-2">
-            <div class="col-12 col-sm-auto">
-              <div class="input-group">
+            <div class="col-12 col-md-6 col-xxl-3">
+              <div class="input-group filter-multiselect">
                 <label class="input-group-text user-select-none" for="filter-suppliers">Dodavatel</label>
-                <select class="form-select" name="filter-suppliers" id="filter-suppliers" multiple>
+                <select class="form-select" name="filter-suppliers" id="filter-suppliers" autocomplete="off" multiple>
                   <option value="Sapeli">Sapeli</option>
                   <option value="Hanák">Hanák</option>
                   <option value="Next">Next</option>
@@ -265,10 +271,10 @@
                 </select>
               </div>
             </div>
-            <div class="col-12 col-sm-auto">
-              <div class="input-group">
+            <div class="col-12 col-md-6 col-xxl-3">
+              <div class="input-group filter-multiselect">
                 <label class="input-group-text user-select-none" for="filter-items">Položky</label>
-                <select class="form-select" name="filter-items" id="filter-items" multiple>
+                <select class="form-select" name="filter-items" id="filter-items" autocomplete="off" multiple>
                   <option value="Židle">Židle</option>
                   <option value="Stůl">Stůl</option>
                   <option value="Zrcadlo">Zrcadlo</option>
@@ -561,6 +567,22 @@
 <style scoped>
   .input-group {
     flex-wrap: nowrap;
+  }
+
+  .filter-multiselect {
+    width: 100%;
+  }
+
+  .filter-multiselect > .input-group-text {
+    flex: 0 0 auto;
+  }
+
+  .filter-multiselect :deep(.ts-wrapper) {
+    min-width: 0;
+  }
+
+  .filter-multiselect :deep(.ts-control) {
+    min-width: 0;
   }
 
   tr {
