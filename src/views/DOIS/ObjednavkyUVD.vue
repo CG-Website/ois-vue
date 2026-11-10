@@ -249,7 +249,7 @@
         </div>
         <div class="col-12">
           <div class="row align-items-center g-2">
-            <div class="col-12 col-md-6 col-xxl-3">
+            <div class="col-12 col-md-6">
               <div class="input-group filter-multiselect">
                 <label class="input-group-text user-select-none" for="filter-suppliers">Dodavatel</label>
                 <select class="form-select" name="filter-suppliers" id="filter-suppliers" autocomplete="off" multiple>
@@ -271,7 +271,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-12 col-md-6 col-xxl-3">
+            <div class="col-12 col-md-6">
               <div class="input-group filter-multiselect">
                 <label class="input-group-text user-select-none" for="filter-items">Položky</label>
                 <select class="form-select" name="filter-items" id="filter-items" autocomplete="off" multiple>
