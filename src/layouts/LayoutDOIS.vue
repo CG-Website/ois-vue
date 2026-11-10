@@ -4,11 +4,38 @@
   // import NavbarVertical from '../components/Nav/NavbarVertical.vue'
   // import Navbar from '../components/Nav/Navbar.vue'
 
+  import { watch } from 'vue'
+  import { useRoute } from 'vue-router'
   import NavbarNav from '@/components/Nav/NavbarNav.vue'
   import NavItem from '@/components/Nav/NavItem.vue'
 
   import { matchesMediaQuery } from '@/composables/matchesMediaQuery';
   const isDesktop = matchesMediaQuery('(min-width: 992px)')
+  const route = useRoute()
+
+  function closeNavbarMenu() {
+    if (isDesktop.value) return
+
+    const navbarMenu = document.getElementById('sidebar-menu')
+    if (!navbarMenu?.classList.contains('show')) return
+
+    const navbarToggler = document.querySelector<HTMLButtonElement>(
+      'button.navbar-toggler[data-bs-target="#sidebar-menu"]',
+    )
+
+    navbarToggler?.click()
+  }
+
+  function onNavbarMenuClick(event: MouseEvent) {
+    const target = event.target
+
+    if (target instanceof Element && target.closest('a')) {
+      closeNavbarMenu()
+    }
+  }
+
+  // Keep the mobile menu closed after every route change, including programmatic navigation.
+  watch(() => route.fullPath, closeNavbarMenu)
 </script>
 
 <template>
@@ -76,7 +103,7 @@
       <!-- Navbar for mobile -->
       <NavbarNav v-if="!isDesktop" />
 
-      <div class="collapse navbar-collapse user-select-none" id="sidebar-menu">
+      <div class="collapse navbar-collapse user-select-none" id="sidebar-menu" @click="onNavbarMenuClick">
 
         <ul class="navbar-nav p-2 p-lg-3 pt-3 gap-1">
 
