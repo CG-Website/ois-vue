@@ -47,11 +47,11 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- TEMP: Logo zatím odkazuje na /dois/objednavky; protože Dashboard ještě není hotový -->
+      <!-- TEMP: Logo odkazuje na /dois/; vede na dashboard -->
 
       <!-- CG Logo with BG (desktop) -->
       <div class="navbar-brand d-none d-lg-inline-flex">
-        <RouterLink to="/dois/objednavky" aria-label="CENTRAL GROUP">
+        <RouterLink to="/dois/" aria-label="CENTRAL GROUP">
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 155 129" style="enable-background:new 0 0 155 129;" xml:space="preserve" class="navbar-brand-image">
             <rect width="155" height="129" fill="#FFED00" />
             <g>
